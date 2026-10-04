@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Detection Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; }
+        textarea { width: 100%; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; cursor: pointer; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 8px; background: #f0f0f0; }
+        .emotion { font-size: 20px; font-weight: bold; text-transform: capitalize; }
+    </style>
+</head>
+<body>
+    <h1>Emotion Detection Chatbot</h1>
+    <form method="POST">
+        <textarea name="message" rows="3" placeholder="Type how you're feeling...">{{ user_text }}</textarea><br>
+        <button type="submit">Detect Emotion</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <div class="emotion">Detected emotion: {{ result.emotion }}</div>
+        <div>Confidence: {{ result.confidence }}%</div>
+        <p>{{ result.response }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
